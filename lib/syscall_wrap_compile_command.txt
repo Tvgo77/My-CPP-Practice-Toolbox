@@ -1,0 +1,2 @@
+g++ -O2 -fPIC -I . -c lib/syscall_wrap.c -o lib/syscall_wrap.o
+g++ -shared -o lib/syscall_wrap.so lib/syscall_wrap.o
