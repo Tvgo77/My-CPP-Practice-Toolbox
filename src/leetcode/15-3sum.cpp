@@ -1,8 +1,4 @@
-#include <vector>
-#include <set>
-#include <algorithm>
-#include <functional>
-#include <stdio.h>
+#include "include/leetcode.h"
 
 using std::vector;
 using std::set;
@@ -59,15 +55,6 @@ public:
         return result;
     }
 };
-
-template <typename Func, typename Expect, typename... Args>
-auto testTool(Func&& func, Expect&& expect, Args&&... args) {
-    Solution solution;
-    auto testFunc = std::bind(std::forward<Func>(func), &solution, std::forward<Args>(args)...);
-    auto output = testFunc();
-    bool b = (expect == output);
-    return b;
-}
 
 // Test function
 int main() {
