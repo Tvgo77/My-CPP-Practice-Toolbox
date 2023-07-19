@@ -22,6 +22,20 @@ public:
   }
 };
 
+shared_ptr<TestClass> testFun1(shared_ptr<TestClass> ptr) {
+  shared_ptr<TestClass> ptrInFun;
+  ptr.use_count();
+  ptrInFun = ptr;
+  return ptrInFun;
+}
+
+shared_ptr<TestClass> testFun2(shared_ptr<TestClass>& ptr) {
+  shared_ptr<TestClass> ptrInFun;
+  ptr.use_count();
+  ptrInFun = ptr;
+  return ptrInFun;
+}
+
 int main() {
   /* Create shared object in block with shared_ptr */
   TestClass* commonPtr;  // Uninitialized common pointer
@@ -45,5 +59,7 @@ int main() {
   ptrList.erase(ptrList.begin() + 1);
 
   /* Pass to or return from function*/
+  testFun1(ptrList[0]);
+  auto newPtr = testFun2(ptrList[0]);
   return 0;
 }
