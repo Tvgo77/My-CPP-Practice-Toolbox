@@ -1,11 +1,11 @@
 {
     "configurations": [
     {
-        "preLaunchTask": "Default C++ compile",
-        "name": "Default Debug",
+        "preLaunchTask": "Leetcode C++ compile",
+        "name": "Leetcode Debug",
         "type": "cppdbg",
         "request": "launch",
-        "program": "${fileDirname}/${fileBasenameNoExtension}",
+        "program": "${workspaceFolder}/build/leetcode/${fileBasenameNoExtension}",
         "args": [],
         "stopAtEntry": false,
         "cwd": "${fileDirname}",
