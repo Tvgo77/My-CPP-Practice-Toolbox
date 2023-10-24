@@ -38,7 +38,7 @@
                 "${file}",
                 "-o",
                 "${workspaceFolder}/build/test/${fileBasenameNoExtension}",
-                "-l "
+                "-lpthread"
             ],
             "options": {
                 "cwd": "${fileDirname}"
