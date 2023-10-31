@@ -48,6 +48,8 @@ int main() {
     testClassPtr1 = testClassPtr3;  // Copy shared_ptr increase use count 
     testClassPtr2 = std::move(testClassPtr3);  // Move shared_ptr do not increase use count
     commonPtr = testClassPtr2.get();  // Copy address to Common pointer do not increase use count
+    shared_ptr<TestClass> testClassPtr4(commonPtr);  // Initalize from a common pointer do not increase count
+    printf("\n");
   }
   testClassPtr1.reset();  // Reset decrease use count
 

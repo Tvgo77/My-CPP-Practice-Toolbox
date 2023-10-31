@@ -49,9 +49,13 @@
                 "text": "-gdb-set disassembly-flavor intel",
                 "ignoreFailures": true
             },
+            // {
+            //     "description": "Skip library files",
+            //     "text": "-interpreter-exec console \"skip -gfi /usr/include/c++/9/** \""
+            // },
             {
                 "description": "Skip library files",
-                "text": "-interpreter-exec console \"skip -gfi /usr/include/c++/9/** \""
+                "text": "-interpreter-exec console \"skip -gfi /usr/include/c++/9/bits/* \""
             }
         ]
     },
@@ -79,6 +83,36 @@
                 "ignoreFailures": true
             }
         ]
-    }
+    },
+
+    {
+        "preLaunchTask": "Implementation C++ compile",
+        "name": "Implementation Debug",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/implementation/${fileBasenameNoExtension}",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${fileDirname}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "setupCommands": [
+            {
+                "description": "Enable pretty-printing for gdb",
+                "text": "-enable-pretty-printing",
+                "ignoreFailures": true
+            },
+            {
+                "description":  "Set Disassembly Flavor to Intel",
+                "text": "-gdb-set disassembly-flavor intel",
+                "ignoreFailures": true
+            },
+            {
+                "description": "Skip library files",
+                "text": "-interpreter-exec console \"skip -gfi /usr/include/c++/9/** \""
+            }
+        ]
+    },
     ]
 }
